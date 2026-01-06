@@ -48,6 +48,27 @@ This isn't a bug - it's a fundamental consequence of how Git tracks history by c
 
 ---
 
+## Live Demo
+
+**PR #1**: [Cherry-Pick Phantom Diff Issue](https://github.com/devnano/git-migration-caveats/pull/1)
+
+### Evidence
+
+| Source | Files in Diff |
+|--------|---------------|
+| GitHub PR | 3 files (feature_a, feature_b, feature_c) |
+| `git diff staging main` | 1 file (feature_c only) |
+
+### Commit SHAs (proof of different identities)
+
+| Feature | main | staging | Content Identical? |
+|---------|------|---------|-------------------|
+| Feature A | `229448b` | `ae262a8` | Yes |
+| Feature B | `ff62546` | `5e3b672` | Yes |
+| Feature C | `99a9bf2` | N/A | Only on main |
+
+---
+
 ## Branches
 
 - `main`: Primary development branch
